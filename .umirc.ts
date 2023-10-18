@@ -7,7 +7,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: '@umijs/max',
+    title: '华为云社区知识图谱',
   },
   routes: [
     {
@@ -20,16 +20,17 @@ export default defineConfig({
       component: './Home',
     },
     {
-      name: '权限演示',
-      path: '/access',
-      component: './Access',
+      name: '知识图谱演示',
+      path: '/knowlegeMap',
+      component: './KnowledgeMap',
     },
     {
-      name: ' CRUD 示例',
+      name: ' CRUD 表格',
       path: '/table',
       component: './Table',
     },
   ],
   npmClient: 'pnpm',
+  clickToComponent: { editor: 'vscode' },
+  esbuildMinifyIIFE: true,
 });
-
