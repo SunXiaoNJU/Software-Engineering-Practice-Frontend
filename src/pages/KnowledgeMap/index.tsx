@@ -1,7 +1,18 @@
 import { PageContainer } from '@ant-design/pro-components';
+import { Button } from 'antd';
 
 const KnowledgeMap: React.FC = () => {
-  return <PageContainer ghost></PageContainer>;
+  const clickHandler = () => {
+    console.log('----');
+  };
+
+  return (
+    <PageContainer ghost>
+      <Button type="primary" onClick={clickHandler}>
+        展示知识图谱
+      </Button>
+    </PageContainer>
+  );
 };
 
 export default KnowledgeMap;

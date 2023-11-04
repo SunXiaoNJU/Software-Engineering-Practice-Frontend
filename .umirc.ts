@@ -25,12 +25,13 @@ export default defineConfig({
       component: './KnowledgeMap',
     },
     {
-      name: ' CRUD 表格',
-      path: '/table',
-      component: './Table',
+      name: '智能问答',
+      path: '/Q&A',
+      component: './Q&A',
     },
   ],
   npmClient: 'pnpm',
   clickToComponent: { editor: 'vscode' },
   esbuildMinifyIIFE: true,
+  clientLoader: {},
 });

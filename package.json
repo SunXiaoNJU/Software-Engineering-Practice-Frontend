@@ -2,11 +2,11 @@
   "private": true,
   "author": "sunxiao <201250011@samil.nju.edu.cn>",
   "scripts": {
-    "dev": "max dev",
     "build": "max build",
+    "dev": "max dev",
     "format": "prettier --cache --write .",
-    "prepare": "husky install",
     "postinstall": "max setup",
+    "prepare": "husky install",
     "setup": "max setup",
     "start": "npm run dev"
   },
@@ -14,7 +14,8 @@
     "@ant-design/icons": "^5.2.6",
     "@ant-design/pro-components": "^2.6.28",
     "@umijs/max": "^4.0.83",
-    "antd": "^5.9.4"
+    "antd": "^5.9.4",
+    "axios": "^1.6.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.25",
