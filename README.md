@@ -1,6 +1,6 @@
 # README
 
-- 运行项目：pnpm start
+- 运行项目：pnpm dev
 - 构建项目：pnpm build
 
 `@umijs/max` 模板项目，更多功能参考 [Umi Max 简介](https://umijs.org/docs/max/introduce)
