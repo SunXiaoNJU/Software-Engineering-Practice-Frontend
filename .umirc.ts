@@ -7,7 +7,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: '华为云社区知识图谱',
+    title: '华为云社区助手',
   },
   routes: [
     {
@@ -25,9 +25,14 @@ export default defineConfig({
       component: './KnowledgeMap',
     },
     {
+      name: '智能推荐',
+      path: '/recommand',
+      component: './Recommand',
+    },
+    {
       name: '智能问答',
-      path: '/Q&A',
-      component: './Q&A',
+      path: '/QA',
+      component: './QA',
     },
   ],
   npmClient: 'pnpm',

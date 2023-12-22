@@ -4,12 +4,12 @@ import { Alert, Button, Dropdown, Input, MenuProps, Result, Space } from 'antd';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const QA: React.FC = () => {
+const Recommand: React.FC = () => {
   const [value, setValue] = useState('');
   const [res, setRes] = useState('');
   const [isclick, setIsclick] = useState(false);
 
-  const keyValueChange = (
+  const valueChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setValue(e.target.value);
@@ -34,7 +34,7 @@ const QA: React.FC = () => {
     <Result
       status="success"
       title="Here is the ANSWER!"
-      subTitle="Cloud server configuration takes a while, if there's no answer, please wait."
+      subTitle="Cloud server configuration takes a while, if there's no answer, please wait a minute."
     >
       {res}
     </Result>
@@ -44,7 +44,7 @@ const QA: React.FC = () => {
     <>
       <br />
       <br />
-      <Alert type="warning" message="请重新输入关键词"></Alert>
+      <Alert type="warning" message="请重新输入问题~"></Alert>
     </>
   );
 
@@ -83,14 +83,15 @@ const QA: React.FC = () => {
     <PageContainer ghost>
       <Space size={[16, 32]} wrap>
         <Input
+          addonBefore="Keyword:"
           placeholder="请输入关键词"
           showCount
           maxLength={10}
-          onChange={keyValueChange}
+          onChange={valueChange}
         />
         <Dropdown menu={{ items }} placement="bottom" arrow>
           <Button type="dashed" disabled danger>
-            关键词提示
+            提示
           </Button>
         </Dropdown>
         <Button
@@ -104,4 +105,4 @@ const QA: React.FC = () => {
     </PageContainer>
   );
 };
-export default QA;
+export default Recommand;

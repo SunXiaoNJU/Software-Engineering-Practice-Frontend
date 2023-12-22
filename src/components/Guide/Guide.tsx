@@ -6,14 +6,13 @@ interface Props {
   name: string;
 }
 
-// 脚手架示例组件
 const Guide: React.FC<Props> = (props) => {
   const { name } = props;
   return (
     <Layout>
       <Row>
         <Typography.Title level={2} className={styles.title}>
-          欢迎鉴赏 <i>{name}</i> ~
+          欢迎使用 <i style={{ color: 'red' }}>{name}</i>
         </Typography.Title>
       </Row>
     </Layout>
