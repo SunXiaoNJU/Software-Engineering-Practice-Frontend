@@ -13,7 +13,7 @@ const KnowledgeMap: React.FC = () => {
       <Button type="primary" onClick={clickHandler}>
         展示知识图谱
       </Button>
-      {isShow ? <Image src="/graph.png"></Image> : <></>}
+      {isShow ? <Image src="/graph.svg"></Image> : <></>}
     </PageContainer>
   );
 };
