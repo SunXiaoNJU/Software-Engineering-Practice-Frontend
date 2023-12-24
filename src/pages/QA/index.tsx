@@ -2,18 +2,19 @@ import { SearchOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-components';
 import { Alert, Button, Input, Result, Space } from 'antd';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const QA: React.FC = () => {
-  const [value, setValue] = useState('');
+  const [ivalue, setIvalue] = useState('');
   const [res, setRes] = useState('');
   const [isclick, setIsclick] = useState(false);
 
-  function valueChange(
+  const ivalueChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) {
-    setValue(e.target.value);
-  }
+  ) => {
+    setIvalue(e.target.value);
+    setIsclick(false);
+  };
 
   const getData = async (value: string) => {
     const data = await axios.get(
@@ -22,18 +23,15 @@ const QA: React.FC = () => {
     setRes(data.data.data);
   };
 
-  useEffect(() => {
-    getData(value);
-  }, [value]);
-
   const askHandler = () => {
+    getData(ivalue);
     setIsclick(true);
   };
 
   const resMsg = (
     <Result
       status="success"
-      title="Here is the ANSWER!"
+      title="智能问答结果"
       subTitle="Cloud server configuration takes a while, if there's no answer, please wait a minute."
     >
       {res}
@@ -44,7 +42,7 @@ const QA: React.FC = () => {
     <>
       <br />
       <br />
-      <Alert type="warning" message="请重新输入问题~"></Alert>
+      <Alert type="warning" message="请重新输入问题"></Alert>
     </>
   );
 
@@ -56,7 +54,7 @@ const QA: React.FC = () => {
           placeholder="请输入问题"
           showCount
           maxLength={25}
-          onChange={valueChange}
+          onChange={ivalueChange}
           style={{ width: '25vw' }}
         />
         <Button

@@ -2,17 +2,18 @@ import { SearchOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-components';
 import { Alert, Button, Dropdown, Input, MenuProps, Result, Space } from 'antd';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Recommand: React.FC = () => {
-  const [value, setValue] = useState('');
+  const [ivalue, setIvalue] = useState('');
   const [res, setRes] = useState('');
   const [isclick, setIsclick] = useState(false);
 
-  const valueChange = (
+  const ivalueChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setValue(e.target.value);
+    setIvalue(e.target.value);
+    setIsclick(false);
   };
 
   const getData = async (value: string) => {
@@ -22,18 +23,15 @@ const Recommand: React.FC = () => {
     setRes(data.data.data);
   };
 
-  useEffect(() => {
-    getData(value);
-  }, [value]);
-
   const askHandler = () => {
+    getData(ivalue);
     setIsclick(true);
   };
 
   const resMsg = (
     <Result
       status="success"
-      title="Here is the ANSWER!"
+      title="智能推荐结果"
       subTitle="Cloud server configuration takes a while, if there's no answer, please wait a minute."
     >
       {res}
@@ -44,7 +42,7 @@ const Recommand: React.FC = () => {
     <>
       <br />
       <br />
-      <Alert type="warning" message="请重新输入问题~"></Alert>
+      <Alert type="warning" message="请重新输入关键词"></Alert>
     </>
   );
 
@@ -87,7 +85,7 @@ const Recommand: React.FC = () => {
           placeholder="请输入关键词"
           showCount
           maxLength={10}
-          onChange={valueChange}
+          onChange={ivalueChange}
         />
         <Dropdown menu={{ items }} placement="bottom" arrow>
           <Button type="dashed" disabled danger>
