@@ -24,6 +24,7 @@ const QA: React.FC = () => {
   };
 
   const askHandler = () => {
+    setRes('请稍等...');
     getData(ivalue);
     setIsclick(true);
   };
